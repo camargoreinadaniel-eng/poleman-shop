@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POLEMAN | Technical Lifestyle</title>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #FFFFFF;
+            --accent: #E30613;
+            --gray: #121212;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--primary);
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.4;
+        }
+
+        header {
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+            position: sticky;
+            top: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .nav-info {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .hero {
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            border-bottom: 8px solid var(--accent);
+            padding: 0 5%;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 90px);
+            margin: 0;
+            line-height: 0.85;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: clamp(12px, 2vw, 18px);
+            margin-top: 20px;
+            color: var(--secondary);
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 0;
+            background-color: transparent;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .product-card {
+            background-color: var(--primary);
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            border: 1px solid var(--accent);
+            margin-top: -1px;
+            margin-left: -1px;
+        }
+
+        .product-card:hover {
+            background-color: var(--gray);
+            z-index: 10;
+            position: relative;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 6px 12px;
+            font-size: 10px;
+            font-weight: 900;
+            display: inline-block;
+            margin-bottom: 25px;
+            width: fit-content;
+        }
+
+        h2 { 
+            font-size: 32px; 
+            margin: 10px 0; 
+            font-weight: 800; 
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--secondary);
+            display: block;
+            margin: 15px 0 25px 0;
+        }
+
+        .specs {
+            font-size: 12px;
+            color: #AAAAAA;
+            margin-bottom: 35px;
+            text-transform: none;
+        }
+
+        .btn {
+            border: 2px solid var(--secondary);
+            padding: 18px 25px;
+            color: var(--secondary);
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            font-weight: 900;
+            font-size: 13px;
+            transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-custom {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-custom:hover {
+            background: #b3050f;
+            border-color: #b3050f;
+            color: white;
+        }
+
+        .factory-note {
+            padding: 80px 10%;
+            text-align: center;
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .factory-note h3 {
+            font-size: 35px;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .factory-note p {
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-transform: none;
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            font-size: 11px;
+            color: #555;
+            background: #050505;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-box {
+            background: var(--primary);
+            border: 2px solid var(--accent);
+            padding: 40px;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(227, 6, 19, 0.3);
+        }
+
+        .modal-box h3 {
+            color: var(--accent);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .modal-box p {
+            font-size: 14px;
+            text-transform: none;
+            margin-bottom: 25px;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .close-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 50px; }
+            .product-card { padding: 40px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">POLEMAN</div>
+    <div class="nav-info">BOGOTÁ | FACTORY DIRECT</div>
+</header>
+
+<section class="hero">
+    <h1>AHEAD OF<br>THE CURVE</h1>
+    <p>Racing Soul. Tailored Spirit.</p>
+</section>
+
+<section class="grid">
+    <div class="product-card">
+        <div>
+            <div class="badge">PERFORMANCE</div>
+            <h2>APEX GRIP GLOVES</h2>
+            <span class="price">$185.000 COP</span>
+            <div class="specs">
+                • Costuras externas de competición.<br>
+                • Grip de silicona de alto grado.<br>
+                • Bordado técnico de alta densidad.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card">
+        <div>
+            <div class="badge">STREETWEAR</div>
+            <h2>GRID-01 T-SHIRT</h2>
+            <span class="price">DESDE $36.000 HASTA $44.000</span>
+            <div class="specs">
+                • Algodón premium de 250g.<br>
+                • Corte atlético estructurado.<br>
+                • Monograma P bordado en pecho.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card">
+        <div>
+            <div class="badge">TECHNICAL</div>
+            <h2>MONOCOQUE HOODIE</h2>
+            <span class="price">DESDE $71.000 HASTA $87.000</span>
+            <div class="specs">
+                • Tela térmica Heavyweight.<br>
+                • Capucha de doble panel.<br>
+                • Logo central en bordado 3D (relieve).
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card">
+        <div>
+            <div class="badge">UTILITY</div>
+            <h2>CHASSIS CARGO-SWEATS</h2>
+            <span class="price">DESDE $71.000 HASTA $87.000</span>
+            <div class="specs">
+                • Corte Straight-Leg (non-jogger).<br>
+                • Sistema 6-Pocket con solapas.<br>
+                • Algodón de alta densidad estructural.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card">
+        <div>
+            <div class="badge">OUTERWEAR</div>
+            <h2>PADDOCK TECH-JACKET</h2>
+            <span class="price">DESDE $112.000 HASTA $127.000</span>
+            <div class="specs">
+                • Repelente al agua y cortavientos.<br>
+                • Cuello alto "racing" con protector.<br>
+                • Logo POLEMAN dorsal en gran formato.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card">
+        <div>
+            <div class="badge">SPORT</div>
+            <h2>SECTOR SHORTS</h2>
+            <span class="price">DESDE $33.500 HASTA $40.500</span>
+            <div class="specs">
+                • Tela elástica 4-way stretch.<br>
+                • Aperturas laterales reforzadas.<br>
+                • Detalle de bandera a cuadros sutil.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card" style="border: 2px dashed var(--accent); margin: 5px;">
+        <div>
+            <div class="badge">CUSTOM SHOP</div>
+            <h2>TU DISEÑO</h2>
+            <span class="price">COTIZACIÓN</span>
+            <div class="specs">
+                • Nosotros lo bordamos por ti.<br>
+                • Ideal para equipos de Sim Racing y Karting.<br>
+                • Calidad de exportación en cada hilo.
+            </div>
+        </div>
+        <a href="https://wa.me/573195404942?text=Hola%20Daniel!%20Tengo%20un%20diseño%20propio%20y%20quiero%20cotizar%20una%20prenda%20con%20Poleman." target="_blank" class="btn btn-custom">SUBIR MI DISEÑO</a>
+    </div>
+</section>
+
+<section class="factory-note">
+    <h3>TECHNICAL TAILORING</h3>
+    <p>Nacidos en la Pole Position. No somos moda masiva; somos la unión entre la precisión de la ingeniería automotriz y la tradición de la sastrería de lujo. Cada puntada está diseñada para durar.</p>
+</section>
+
+<footer>
+    POLEMAN LIFESTYLE © 2026 | BOGOTÁ, COLOMBIA | TRADICIÓN TEXTIL & ADN RACING<br>
+    CONTACTO: +57 319 5404942
+</footer>
+
+<div class="modal-overlay" id="stockModal">
+    <div class="modal-box">
+        <h3>BOX BOX BOX</h3>
+        <p>lo siento poleman en este momento no hay inventario dentro de poco tendremos solo para ti ;)</p>
+        <button class="close-btn" onclick="closeModal()">ENTENDIDO</button>
+    </div>
+</div>
+
+<script>
+    const orderButtons = document.querySelectorAll('.btn-order');
+    const modal = document.getElementById('stockModal');
+
+    orderButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+    });
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>

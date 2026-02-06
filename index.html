@@ -74,11 +74,12 @@
             padding-left: 15px;
         }
 
+        /* --- CORRECCIÓN DEL PEDAZO ROJO --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2px;
-            background-color: var(--accent);
+            gap: 0; /* Sin huecos */
+            background-color: var(--primary); /* FONDO NEGRO (Solución) */
             border-bottom: 2px solid var(--accent);
         }
 
@@ -89,7 +90,9 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.4s ease;
+            border: 1px solid var(--accent); /* El borde ahora está en la tarjeta */
         }
+        /* ---------------------------------- */
 
         .product-card:hover {
             background-color: var(--gray);
@@ -100,7 +103,7 @@
             width: auto;
             border: 2px dashed var(--accent);
             background-color: var(--primary);
-            margin-top: 2px; 
+            margin-top: 5px; /* Pequeña separación estética */
         }
 
         .badge {
@@ -270,7 +273,7 @@
             <h2>APEX GRIP GLOVES</h2>
             <span class="price">$185.000 COP</span>
             <div class="specs">
-                • Costuras externas para confort.<br>
+                • Guantes técnicos Sim Racing/Karting.<br>
                 • Palma con polímero de silicona.<br>
                 • Logo bordado en alta definición.
             </div>
@@ -326,9 +329,9 @@
             <h2>PADDOCK TECH-JACKET</h2>
             <span class="price">$112.000 - $127.000 COP</span>
             <div class="specs">
-                • Repelente al agua + Forro rojo.<br>
+                • Repelente al agua / Forro rojo.<br>
                 • Cuello alto tipo racing.<br>
-                • Bordado en espalda y pecho.
+                • Logos bordados espalda y pecho.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -342,7 +345,7 @@
             <div class="specs">
                 • Tela elástica movilidad máxima.<br>
                 • Aperturas laterales reforzadas.<br>
-                • Ideal pista o entrenamiento.
+                • Ideales para pista o entrenamiento.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -384,7 +387,7 @@
             <div class="specs">
                 • Corte extra ancho (Extra-Wide).<br>
                 • Monograma "P" en bolsillo trasero.<br>
-                • Costuras de contraste con volumen.
+                • Costuras de contraste volumen.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -447,3 +450,4 @@
 
 </body>
 </html>
+

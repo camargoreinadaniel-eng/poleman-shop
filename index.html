@@ -77,9 +77,9 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 0;
-            background-color: transparent;
-            border-bottom: 1px solid var(--accent);
+            gap: 2px;
+            background-color: var(--accent);
+            border-bottom: 2px solid var(--accent);
         }
 
         .product-card {
@@ -89,15 +89,18 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.4s ease;
-            border: 1px solid var(--accent);
-            margin-top: -1px;
-            margin-left: -1px;
         }
 
         .product-card:hover {
             background-color: var(--gray);
-            z-index: 10;
-            position: relative;
+        }
+
+        .full-width-card {
+            grid-column: 1 / -1 !important; 
+            width: auto;
+            border: 2px dashed var(--accent);
+            background-color: var(--primary);
+            margin-top: 2px; 
         }
 
         .badge {
@@ -112,13 +115,13 @@
         }
 
         h2 { 
-            font-size: 32px; 
+            font-size: 26px; 
             margin: 10px 0; 
             font-weight: 800; 
         }
 
         .price {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 300;
             color: var(--secondary);
             display: block;
@@ -130,6 +133,7 @@
             color: #AAAAAA;
             margin-bottom: 35px;
             text-transform: none;
+            line-height: 1.6;
         }
 
         .btn {
@@ -266,9 +270,9 @@
             <h2>APEX GRIP GLOVES</h2>
             <span class="price">$185.000 COP</span>
             <div class="specs">
-                • Costuras externas de competición.<br>
-                • Grip de silicona de alto grado.<br>
-                • Bordado técnico de alta densidad.
+                • Costuras externas para confort.<br>
+                • Palma con polímero de silicona.<br>
+                • Logo bordado en alta definición.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -278,11 +282,11 @@
         <div>
             <div class="badge">STREETWEAR</div>
             <h2>GRID-01 T-SHIRT</h2>
-            <span class="price">DESDE $36.000 HASTA $44.000</span>
+            <span class="price">$36.000 - $44.000 COP</span>
             <div class="specs">
-                • Algodón premium de 250g.<br>
-                • Corte atlético estructurado.<br>
-                • Monograma P bordado en pecho.
+                • Camiseta esencial algodón premium.<br>
+                • Diseñada para durar.<br>
+                • Monograma "P" bordado en pecho.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -292,11 +296,11 @@
         <div>
             <div class="badge">TECHNICAL</div>
             <h2>MONOCOQUE HOODIE</h2>
-            <span class="price">DESDE $71.000 HASTA $87.000</span>
+            <span class="price">$71.000 - $87.000 COP</span>
             <div class="specs">
-                • Tela térmica Heavyweight.<br>
-                • Capucha de doble panel.<br>
-                • Logo central en bordado 3D (relieve).
+                • Algodón perchado alta densidad.<br>
+                • Cordones en rojo racing.<br>
+                • Logo central look premium.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -306,11 +310,11 @@
         <div>
             <div class="badge">UTILITY</div>
             <h2>CHASSIS CARGO-SWEATS</h2>
-            <span class="price">DESDE $71.000 HASTA $87.000</span>
+            <span class="price">$71.000 - $87.000 COP</span>
             <div class="specs">
-                • Corte Straight-Leg (non-jogger).<br>
-                • Sistema 6-Pocket con solapas.<br>
-                • Algodón de alta densidad estructural.
+                • Corte recto (sin resorte abajo).<br>
+                • Sistema 4-6 bolsillos técnicos.<br>
+                • Construcción robusta mantiene forma.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -320,11 +324,11 @@
         <div>
             <div class="badge">OUTERWEAR</div>
             <h2>PADDOCK TECH-JACKET</h2>
-            <span class="price">DESDE $112.000 HASTA $127.000</span>
+            <span class="price">$112.000 - $127.000 COP</span>
             <div class="specs">
-                • Repelente al agua y cortavientos.<br>
-                • Cuello alto "racing" con protector.<br>
-                • Logo POLEMAN dorsal en gran formato.
+                • Repelente al agua + Forro rojo.<br>
+                • Cuello alto tipo racing.<br>
+                • Bordado en espalda y pecho.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
@@ -333,18 +337,60 @@
     <div class="product-card">
         <div>
             <div class="badge">SPORT</div>
-            <h2>SECTOR SHORTS</h2>
-            <span class="price">DESDE $33.500 HASTA $40.500</span>
+            <h2>SECTOR PERF. SHORTS</h2>
+            <span class="price">$33.500 - $40.500 COP</span>
             <div class="specs">
-                • Tela elástica 4-way stretch.<br>
+                • Tela elástica movilidad máxima.<br>
                 • Aperturas laterales reforzadas.<br>
-                • Detalle de bandera a cuadros sutil.
+                • Ideal pista o entrenamiento.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
     </div>
 
-    <div class="product-card" style="border: 2px dashed var(--accent); margin: 5px;">
+    <div class="product-card">
+        <div>
+            <div class="badge">ESSENTIAL</div>
+            <h2>TORQUE CREWNECK</h2>
+            <span class="price">$71.500 - $87.000 COP</span>
+            <div class="specs">
+                • Saco cuello redondo estilo "Boxy Fit".<br>
+                • Algodón con cuello reforzado.<br>
+                • Look de garaje clásico y sofisticado.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card">
+        <div>
+            <div class="badge">ENGINEERING</div>
+            <h2>TELEMETRY DRILL PANTS</h2>
+            <span class="price">$75.000 - $90.000 COP</span>
+            <div class="specs">
+                • Drill premium color beige/khaki.<br>
+                • Corte Relaxed Fit (oversize moderado).<br>
+                • Costuras técnicas reforzadas.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card">
+        <div>
+            <div class="badge">AERO</div>
+            <h2>SLIPSTREAM BAGGIES</h2>
+            <span class="price">$75.000 - $90.000 COP</span>
+            <div class="specs">
+                • Corte extra ancho (Extra-Wide).<br>
+                • Monograma "P" en bolsillo trasero.<br>
+                • Costuras de contraste con volumen.
+            </div>
+        </div>
+        <a href="#" class="btn btn-order">ORDENAR P1</a>
+    </div>
+
+    <div class="product-card full-width-card">
         <div>
             <div class="badge">CUSTOM SHOP</div>
             <h2>TU DISEÑO</h2>
@@ -383,7 +429,7 @@
 
     orderButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); 
             modal.style.display = 'flex';
         });
     });

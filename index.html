@@ -74,28 +74,34 @@
             padding-left: 15px;
         }
 
-        /* --- CORRECCIÓN DEL PEDAZO ROJO --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 0; /* Sin huecos */
-            background-color: var(--primary); /* FONDO NEGRO (Solución) */
+            gap: 0;
+            background-color: var(--primary);
             border-bottom: 2px solid var(--accent);
         }
 
         .product-card {
             background-color: var(--primary);
-            padding: 50px 40px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.4s ease;
-            border: 1px solid var(--accent); /* El borde ahora está en la tarjeta */
+            border: 1px solid var(--accent);
         }
-        /* ---------------------------------- */
 
         .product-card:hover {
             background-color: var(--gray);
+        }
+
+        /* ESTILO PARA LAS IMÁGENES */
+        .product-img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
         }
 
         .full-width-card {
@@ -103,7 +109,7 @@
             width: auto;
             border: 2px dashed var(--accent);
             background-color: var(--primary);
-            margin-top: 5px; /* Pequeña separación estética */
+            margin-top: 5px; 
         }
 
         .badge {
@@ -273,7 +279,7 @@
             <h2>APEX GRIP GLOVES</h2>
             <span class="price">$185.000 COP</span>
             <div class="specs">
-                • Guantes técnicos Sim Racing/Karting.<br>
+                • Costuras externas para confort.<br>
                 • Palma con polímero de silicona.<br>
                 • Logo bordado en alta definición.
             </div>
@@ -282,6 +288,7 @@
     </div>
 
     <div class="product-card">
+        <img src="greentshirt.jpg" alt="Grid-01 T-Shirt" class="product-img">
         <div>
             <div class="badge">STREETWEAR</div>
             <h2>GRID-01 T-SHIRT</h2>
@@ -292,10 +299,11 @@
                 • Monograma "P" bordado en pecho.
             </div>
         </div>
-        <a href="#" class="btn btn-order">ORDENAR P1</a>
+        <a href="https://wa.me/573195404942?text=Hola%20Poleman!%20Me%20interesa%20la%20camiseta%20GRID-01." target="_blank" class="btn">ORDENAR P1</a>
     </div>
 
     <div class="product-card">
+        <img src="hoodie.jpg" alt="Monocoque Hoodie" class="product-img">
         <div>
             <div class="badge">TECHNICAL</div>
             <h2>MONOCOQUE HOODIE</h2>
@@ -306,7 +314,7 @@
                 • Logo central look premium.
             </div>
         </div>
-        <a href="#" class="btn btn-order">ORDENAR P1</a>
+        <a href="https://wa.me/573195404942?text=Hola%20Poleman!%20Me%20interesa%20el%20Monocoque%20Hoodie." target="_blank" class="btn">ORDENAR P1</a>
     </div>
 
     <div class="product-card">
@@ -324,6 +332,7 @@
     </div>
 
     <div class="product-card">
+        <img src="polemanjacketdelantero.jpg" alt="Paddock Tech Jacket" class="product-img">
         <div>
             <div class="badge">OUTERWEAR</div>
             <h2>PADDOCK TECH-JACKET</h2>
@@ -334,7 +343,7 @@
                 • Logos bordados espalda y pecho.
             </div>
         </div>
-        <a href="#" class="btn btn-order">ORDENAR P1</a>
+        <a href="https://wa.me/573195404942?text=Hola%20Poleman!%20Me%20interesa%20la%20Paddock%20Tech-Jacket." target="_blank" class="btn">ORDENAR P1</a>
     </div>
 
     <div class="product-card">
@@ -345,7 +354,7 @@
             <div class="specs">
                 • Tela elástica movilidad máxima.<br>
                 • Aperturas laterales reforzadas.<br>
-                • Ideales para pista o entrenamiento.
+                • Ideal pista o entrenamiento.
             </div>
         </div>
         <a href="#" class="btn btn-order">ORDENAR P1</a>
